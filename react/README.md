@@ -1,4 +1,4 @@
-# Airbnb React/JSX Style Guide
+# Economic React/JSX Style Guide
 
 *A mostly reasonable approach to React and JSX*
 
@@ -33,7 +33,7 @@
       return <div />;
     }
   });
-  
+
   // good
   class Listing extends React.Component {
     render() {
@@ -49,10 +49,10 @@
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances:
     ```javascript
     // bad
-    const reservationCard = require('./ReservationCard');
+    const reservationCard = require('./reservation-card');
 
     // good
-    const ReservationCard = require('./ReservationCard');
+    const ReservationCard = require('./reservation-card');
 
     // bad
     const ReservationItem = <ReservationCard />;
@@ -61,16 +61,16 @@
     const reservationItem = <ReservationCard />;
     ```
 
-    **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+    **Component Naming**: Use the filename as the component name, in lowercase, with spaces replaced by hypens (-). For example, `reservation-card.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
     ```javascript
     // bad
-    const Footer = require('./Footer/Footer.jsx')
+    const Footer = require('./footer/footer.jsx')
 
     // bad
-    const Footer = require('./Footer/index.jsx')
+    const Footer = require('./footer/index.jsx')
 
     // good
-    const Footer = require('./Footer')
+    const Footer = require('./footer')
     ```
 
 
@@ -243,7 +243,7 @@
 ## Ordering
 
   - Ordering for class extends React.Component:
-  
+
   1. constructor
   1. optional static methods
   1. getChildContext
@@ -263,30 +263,30 @@
 
   ```javascript
   import React, { Component, PropTypes } from 'react';
-  
+
   const propTypes = {
     id: PropTypes.number.isRequired,
     url: PropTypes.string.isRequired,
     text: PropTypes.string,
   };
-  
+
   const defaultProps = {
     text: 'Hello World',
   };
-  
+
   class Link extends Component {
     static methodsAreOk() {
       return true;
     }
-  
+
     render() {
       return <a href={this.props.url} data-id={this.props.id}>{this.props.text}</a>
     }
   }
-  
+
   Link.propTypes = propTypes;
   Link.defaultProps = defaultProps;
-  
+
   export default Link;
   ```
 
