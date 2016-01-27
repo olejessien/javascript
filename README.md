@@ -1537,7 +1537,8 @@ Other Style Guides
     // good
     if (baz) {
       console.log(qux);
-    } else {
+    } 
+    else {
       console.log(foo);
     }
     ```
